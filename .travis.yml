@@ -2,8 +2,7 @@ language: java
 before_install:
 - sudo rm /usr/local/bin/docker-compose
 - sudo curl -L https://github.com/docker/compose/releases/download/1.20.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-- sudo chmod +x docker-compose
-- sudo mv docker-compose /usr/local/bin
+- sudo chmod +x /usr/local/bin/docker-compose
 - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
 install:
 - mvn install -Dmaven.javadoc.skip=true -B -V
