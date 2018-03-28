@@ -13,6 +13,8 @@ install:
 - docker pull  $DOCKER_USERNAME/se234-lab10-client
 script:
 - docker-compose -H "$DOCKER_HOST" up -d
+after_success:
+- docker ps
 cache:
   directories:
   - "$HOME/.m2"
