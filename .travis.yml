@@ -14,6 +14,10 @@ install:
 - docker push meandthefirefly/se234-lab10-client
 script:
 - docker-compose -H "DOCKER_HOST" up -d
+after_success:
+- docker stop se234-lab10-backend
+- docker rm se234-lab10-backend 
+- docker run -p 8081:80 -d --name se234-lab10-backend meandthefirefly/se234-lab10-backend:latest
 cache:
   directories:
   - "$HOME/.m2"
