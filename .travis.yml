@@ -12,7 +12,6 @@ install:
 - docker build --build-arg JAR_FILE=/target/backend.jar -t $DOCKER_USERNAME/se234-lab10-backend  .
 - docker push  $DOCKER_USERNAME/se234-lab10-backend
 - docker pull  $DOCKER_USERNAME/se234-lab10-client
-- docker pull  $DOCKER_USERNAME/se234-lab10-backend
 script:
 - docker-compose -H $DOCKER_HOST up -d
 after_success:
