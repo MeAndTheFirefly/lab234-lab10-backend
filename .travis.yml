@@ -5,8 +5,9 @@ before_install:
   -s`-`uname -m` -o /usr/local/bin/docker-compose
 - sudo chmod +x /usr/local/bin/docker-compose
 - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+- mvn clean
 install:
-- clean install -Dmaven.javadoc.skip=true -B -V
+- mvn install -Dmaven.javadoc.skip=true -B -V
 - ls -l
 - docker build --build-arg JAR_FILE=/target/backend.jar -t $DOCKER_USERNAME/se234-lab10-backend  .
 - docker push  $DOCKER_USERNAME/se234-lab10-backend
